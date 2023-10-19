@@ -8,7 +8,7 @@ This repository hosts a collection of Terraform modules designed to demonstrate 
     Instances Module: Deploys EC2 instances with varying configurations to illustrate different security postures.
     Weak IAM Roles Module: Creates intentionally weak IAM roles to demonstrate the importance of least privilege principles.
 
-## Features
+### Features
 
     Dynamic Resource Creation: Utilize the count parameter to easily toggle the creation of resources.
     Real-world Scenarios: Explore real-world scenarios like a reverse shell setup through the remote-exec provisioner, and discover how to mitigate such risks.
