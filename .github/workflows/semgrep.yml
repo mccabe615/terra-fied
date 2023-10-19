@@ -11,4 +11,4 @@ jobs:
       image: returntocorp/semgrep
     steps:
     - uses: actions/checkout@v3
-    - run: pwd && ls -la
+    - run: semgrep ci
