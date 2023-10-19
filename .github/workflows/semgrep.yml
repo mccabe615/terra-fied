@@ -6,7 +6,7 @@ on:
     - main
     - master
     paths:
-    - basic_terraform/
+    - basic_terraform/*
   schedule:
   # random HH:MM to avoid a load spike on GitHub Actions at 00:00
   - cron: 54 14 * * *
