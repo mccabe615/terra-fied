@@ -53,6 +53,18 @@ resource "aws_security_group" "r2dso-lab_sg" {
   }
 }
 
+variable "first_number" {
+  default = 2
+}
+
+variable "second_number" {
+  default = 2
+}
+
+output "concatenated_string" {
+  value = format("%s%s", tostring(var.first_number), tostring(var.second_number))
+}
+
 resource "aws_security_group" "r2dso-weak_sg" {
   name        = "ec2-tf-testing"
   description = "SG for use with terraform testing"
