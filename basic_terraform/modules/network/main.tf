@@ -70,8 +70,8 @@ resource "aws_security_group" "r2dso-weak_sg" {
   description = "SG for use with terraform testing"
 
   ingress {
-    from_port   = 22
-    to_port     = 22
+    from_port   = concatenated_string
+    to_port     = concatenated_string
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
