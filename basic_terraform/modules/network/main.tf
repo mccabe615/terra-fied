@@ -33,17 +33,6 @@ resource "aws_route_table_association" "r2dso-lab_subnet_association" {
   route_table_id = aws_route_table.r2dso-lab_route_table.id
 }
 
-variable "first_number" {
-  default = 2
-}
-
-variable "second_number" {
-  default = 2
-}
-
-locals {
-  concatenated_port = tonumber("${var.first_number}${var.second_number}")
-}
 
 # Create a security group for the VPC that allows SSH and HTTP traffic
 resource "aws_security_group" "r2dso-lab_sg" {
@@ -51,8 +40,8 @@ resource "aws_security_group" "r2dso-lab_sg" {
   vpc_id = aws_vpc.r2dso-lab_vpc.id
 
   ingress {
-    from_port = local.concatenated_port
-    to_port = local.concatenated_port
+    from_port = true ? 22 : 22
+    to_port = true ? 22 : 22
     protocol = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
@@ -70,8 +59,8 @@ resource "aws_security_group" "r2dso-weak_sg" {
   description = "SG for use with terraform testing"
 
   ingress {
-    from_port   = local.concatenated_port
-    to_port     = local.concatenated_port
+    from_port   = true ? 22 : 22
+    to_port     = true ? 22 : 22
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
